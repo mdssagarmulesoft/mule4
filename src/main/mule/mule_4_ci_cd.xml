@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="b8ddc28e-3ace-41f3-b4c9-38306f2ac20e" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="mule_4_ci_cdFlow" doc:id="c086706f-aaf0-4822-827e-45143238340b" >
+		<http:listener doc:name="Listener" doc:id="3f9f83bb-b104-4b64-b30a-d0a1145d0619" config-ref="HTTP_Listener_config" path="/cicd"/>
+		<logger level="INFO" doc:name="Logger" doc:id="de4a7b62-3b47-40ce-b344-170b57f34953" message="Log - This is Mule 4 CICD Implementation"/>
+		<set-payload value="this is CICD" doc:name="Set Payload" doc:id="45a5ec3f-9cbb-4d96-be4a-7eecb83edfc1" />
+	</flow>
+</mule>
